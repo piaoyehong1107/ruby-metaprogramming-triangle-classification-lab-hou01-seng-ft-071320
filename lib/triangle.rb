@@ -21,6 +21,6 @@ class Triangle
 # 	end
    class TriangleError < StandardError
      raise TriangleError if( (first + second <= third) || (first + third <= second) || (second + third <= first ))
-    raise TriangleError if (first<=0 || second<=0 || third<=0) 
+     raise TriangleError if (first<=0 || second<=0 || third<=0) 
 	 end
 end
