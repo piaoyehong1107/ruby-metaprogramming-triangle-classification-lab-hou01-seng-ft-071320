@@ -5,6 +5,7 @@ class Triangle
     @second=second
     @third=third
   end
+  
   def kind 
     # validate
     if (first == second && second == third)
