@@ -7,7 +7,7 @@ class Triangle
   end
   
   def kind 
-    # validate
+    validate
     if (first == second && second == third)
       :equilateral
     elsif (first == second || second == third || first == third) 
@@ -15,7 +15,7 @@ class Triangle
     else
       :scalene
     end
-  #end
+    end
 #   def validate
 #     raise TriangleError if( (first + second <= third) || (first + third <= second) || (second + third <= first ))
 #     raise TriangleError if (first<=0 || second<=0 || third<=0) 
