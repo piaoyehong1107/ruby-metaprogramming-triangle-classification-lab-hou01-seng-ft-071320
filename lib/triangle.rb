@@ -16,10 +16,12 @@ class Triangle
     end
   end
   def validate
-    real_triangle = [(first + second > third), (first + third > second), (second+third>first )]
-    [first, second, third].each do |side|
-      real_triangle << false if side <= 0 
-    raise TriangleError if real_triangle.include?(false)
+    raise TriangleError if (first + second < third) || (first + third < second)|| (second+third < first )
+    # real_triangle = [(first + second > third), (first + third > second), (second+third>first )]
+    # [first, second, third].each do |side|
+    #   real_triangle << false if side <= 0 
+    # raise TriangleError if real_triangle.include?(false)
+    raise TriangleError if (first<=0 || second<=0 || third<=0) 
     end
 	end
 	
