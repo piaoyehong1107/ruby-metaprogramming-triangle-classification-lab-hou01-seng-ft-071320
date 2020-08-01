@@ -6,21 +6,24 @@ class Triangle
     @third=third
   end
   def kind 
-    if (@first == @second && @second == @third)
-      return :equilateral
-    elsif (@first == @second || @seond == @third)
-      return :isosceles
+    validate
+    if (first == second && second == third)
+      :equilateral
+    elsif (first == second || second == third || first == third) 
+     :isosceles
     else
-      return :scalene
+      :scalene
     end
   end
+  def validate
+    real_triangle = [(first + second > third), (first + third > second), (second+third>first )]
+    [first, second, third].each do |side|
+      real_triangle << false if side <= 0 
+    raise TriangleError if real_triangle.include?(false)
+    end
+	end
+	
     
-   class PartnerError < StandardError
-     if (@first + @second < @third || @second + @third <@first || @first + @third <@second)
-      begin
-		    raise TriangleError
-		  rescue TriangleError => error
-		 end
-		 end
+   class TriangleError < StandardError
 	 end
 end
